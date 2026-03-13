@@ -30,3 +30,30 @@ class Nodo {
     }
 }
 
+// 3. Implementación de Pila Manual
+class PilaManual {
+    private Nodo tope;
+
+    public void push(Pizza pizza) {
+        Nodo nuevo = new Nodo(pizza);
+        nuevo.siguiente = tope;
+        tope = nuevo;
+    }
+
+    //Deshacer 
+    public Pizza pop() {
+        if (isEmpty()) return null;
+        Pizza pizza = tope.pizza;
+        tope = tope.siguiente;
+        return pizza;
+    }
+
+    public Pizza peek() {
+        return (isEmpty()) ? null : tope.pizza;
+    }
+
+    public boolean isEmpty() {
+        return tope == null;
+    }
+}
+
